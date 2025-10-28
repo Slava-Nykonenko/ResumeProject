@@ -1,0 +1,51 @@
+{% load static %}
+<button class="nav-open-btn" aria-label="Open Menu" data-nav-toggler>
+  <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+</button>
+<nav class="navbar" data-navbar="">
+  <div class="navbar-top">
+      <button class="nav-close-btn" aria-label="Close Menu" data-nav-toggler>
+          <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+      </button>
+  </div>
+  <ul class="navbar-list">
+    <li class="navbar-item">
+      <a href="{% url 'resume:index' %}" class="navbar-link" data-nav-link="">Home</a>
+    </li>
+
+    <li class="navbar-item">
+      <a href="{% url 'resume:education' %}" class="navbar-link" data-nav-link="">Education</a>
+    </li>
+
+    <li class="navbar-item">
+      <a href="{% url 'resume:experience' %}" class="navbar-link" data-nav-link>Experience</a>
+    </li>
+
+    <li class="navbar-item">
+      <a href="{% url 'resume:projects' %}" class="navbar-link" data-nav-link>My projects</a>
+    </li>
+
+    <li class="navbar-item">
+      <a href="{% url 'resume:contacts' %}" class="navbar-link" data-nav-link>Contacts</a>
+    </li>
+
+    {% if user.is_authenticated %}
+      <li class="nav-bar-item">
+        <a href="{{ user.get_absolute_url }}" class="navbar-link" data-nav-link>{{ user.get_username }}</a>
+      </li>
+
+      <li class="nav-bar-item">
+        <form method="post" action="{% url 'logout' %}?next={{request.path}} ">
+          {% csrf_token %}
+          <button type="submit" class="navbar-link">Logout</button>
+        </form>
+      </li>
+    {% else %}
+      <li class="nav-bar-item">
+        <a href="{% url 'login' %}?next={{request.path}} " class="navbar-link" data-nav-link>Login</a>
+      </li>
+    {% endif %}
+  </ul>
+</nav>
+
+<div class="overlay" data-nav-toggler data-overlay></div>

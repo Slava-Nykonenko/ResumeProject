@@ -48,7 +48,6 @@ class Project(models.Model):
     technologies = models.ManyToManyField(Technology)
     github_url = models.URLField()
     live_url = models.URLField()
-    image_url = models.ImageField()
 
     def __str__(self):
         return self.title

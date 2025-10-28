@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-t-!h_7yqun2jio+)6vophwjj0(o^715j^y-$3%ltb$2%d)&zko
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 
 
 # Application definition
@@ -36,7 +36,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "resume"
+    "resume",
+    "user"
 ]
 
 MIDDLEWARE = [
@@ -79,6 +80,10 @@ DATABASES = {
     }
 }
 
+AUTH_USER_MODEL = "user.User"
+
+MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_URL = "/media/"
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators

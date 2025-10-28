@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  {% block title %}
+  <title>Viacheslav Nykonenko</title>
+  {% endblock %}
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body id="top">
+<div class="container">
+  <a href="{% url 'resume:index' %}">
+    Viacheslav Nykonenko
+  </a>
+
+  {% block navigation %}
+    {% include "includes/navigation.html" %}
+  {% endblock %}
+</div>
+<main>
+    <article>
+      {% block hero-content %}
+      {% endblock %}
+      <section class="section standard-content">
+        <div class="container">
+          {% block content %}{% endblock %}
+{#          {% block pagination %}#}
+{#            {% include "includes/pagination.html" %}#}
+{#          {% endblock %}#}
+        </div>
+      </section>
+
+    </article>
+
+  <!--
+    - #FOOTER
+  -->
+
+  <footer class="footer">
+    <div class="container">
+
+      <div class="footer-top section grid-list">
+
+        <div class="footer-brand">
+
+
+        </div>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Explore</p>
+          </li>
+
+          <li>
+            <a href="{% url 'resume:index' %}" class="footer-link">Home</a>
+          </li>
+
+          <li>
+            <a href="{% url 'resume:education' %}" class="footer-link">Education</a>
+          </li>
+
+          <li>
+            <a href="{% url 'resume:experience' %}" class="footer-link">Experience</a>
+          </li>
+
+          <li>
+            <a href="{% url 'resume:projects' %}" class="footer-link">My Projects</a>
+          </li>
+
+          <li>
+            <a href="{% url 'resume:contacts' %}" class="footer-link">My Contacts</a>
+          </li>
+
+        </ul>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Links</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Terms of Use</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Contact</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">News & Press</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">FAQs</a>
+          </li>
+
+        </ul>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Contact</p>
+          </li>
+
+          <li class="footer-list-item">
+            <ion-icon name="call" aria-hidden="true"></ion-icon>
+
+            <a href="tel: +353852221534" class="footer-link">+353 (85) 222 1534</a>
+          </li>
+
+          <li class="footer-list-item">
+            <ion-icon name="mail" aria-hidden="true"></ion-icon>
+
+            <a href="mailto:slava.nykon@gmail.com" class="footer-link">slava-nykon@gmail.com</a>
+          </li>
+
+          <li class="footer-list-item">
+            <ion-icon name="location" aria-hidden="ture"></ion-icon>
+
+            <address class="address">
+              co. Carlow, Ireland
+            </address>
+          </li>
+
+        </ul>
+
+      </div>
+
+      <div class="footer-bottom">
+
+        <p class="copyright">
+          Copyright 2025 by Viacheslav Nykonenko.
+        </p>
+
+        <ul class="social-list">
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-github"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+  </footer>
+
+  <!--
+    - #BACK TO TOP
+  -->
+
+  <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
+    <ion-icon name="arrow-up-outline" aria-hidden="true"></ion-icon>
+  </a>
+
+
+  <!--
+    - custom js link
+  -->
+  <script src="{% static 'js/script.js' %}" defer></script>
+
+  <!--
+    - ion-icon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</main>
+</body>
+</html>
