@@ -24,11 +24,13 @@ from resume.views import (
     ProjectListView,
     ContactDetailView,
     ContactCreateView,
+    SkillListView
 )
 
 urlpatterns = [
     path("", index, name="index"),
     path("education/", EducationListView.as_view(), name="education"),
+    path("skills/", SkillListView.as_view(), name="skills"),
     path("experience/", ExperienceListView.as_view(), name="experience"),
     path("projects/", ProjectListView.as_view(), name="projects"),
     path("contact/", ContactDetailView.as_view(), name="contacts"),

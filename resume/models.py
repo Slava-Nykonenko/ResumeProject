@@ -34,9 +34,13 @@ class Education(models.Model):
                 f"{self.degree} ({self.start_date} - {self.end_date})")
 
 
-class Technology(models.Model):
+class Skill(models.Model):
+    CATEGORIES = [
+        ("softskill", "SoftSkill"),
+        ("techskill", "TechSkill")
+    ]
     title = models.CharField(max_length=100)
-    category = models.CharField(max_length=150)
+    category = models.CharField(max_length=150, choices=CATEGORIES)
 
     def __str__(self):
         return self.title
@@ -45,7 +49,7 @@ class Technology(models.Model):
 class Project(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
-    technologies = models.ManyToManyField(Technology)
+    skills = models.ManyToManyField(Skill, related_name="projects")
     github_url = models.URLField()
     live_url = models.URLField()
 
